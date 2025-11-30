@@ -22,9 +22,22 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, (err) => {
+  if (err) {
+    console.error("Server failed to start:", err);
+  } else {
+    console.log(`Server running on port ${PORT}`);
+  }
+});
+
+
 app.get("/", (req, res) => {
+    console.log("Redirecting / to /admin/check_login");
     res.redirect("/admin/check_login");
 });
+
 
 app.use('/users', usersRouter);
 app.use('/food', foodRouter);
