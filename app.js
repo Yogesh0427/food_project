@@ -35,7 +35,7 @@ app.listen(PORT, (err) => {
 
 app.get("/", (req, res) => {
     console.log("Redirecting / to /admin/check_login");
-    res.redirect("/admin/check_login");
+    res.redirect("/admin/login");
 });
 
 
