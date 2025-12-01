@@ -8,7 +8,7 @@ router.get("/login",function(req,res,next){
     res.render("login",{message:''})
 })
 router.post('/check_login',function(req,res,next){
-    pool.query("select * from admins where (email_id=? or mobile_num=?) and password=?",[req.body.email_id,req.body.email_id,req.body.password],function(error,result){
+    pool.query("select * from admins where (emailid=? or mobileno=?) and password=?",[req.body.email_id,req.body.email_id,req.body.password],function(error,result){
         if(error)
         {
             res.render('login',{message: 'Database error pls connect with database administrator'})
